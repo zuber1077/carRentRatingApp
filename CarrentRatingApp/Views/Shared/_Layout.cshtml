@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - car Rent Rating</title>
+    @Styles.Render("~/Content/bootstrap.min.css")
+    @Styles.Render("~/Content/style.css")
+</head>
+<body>
+    <div class="super_container">
+        <header class="header">
+            <div class="top_bar">
+                <div class="container">
+                    <div class="row">
+                        <div class="col d-flex flex-row">
+                            <div class="phone user_box_link">@Html.ActionLink("Home", "index", "Product")</div>
+                            <div class="user_box ml-auto">
+                                <div class="user_box_login user_box_link"><a href="#">@Html.ActionLink("Login", "Login", "Account")</a></div>
+                                <div class="user_box_register user_box_link"><a href="#">@Html.ActionLink("register", "SignUp", "Account")</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        @RenderBody()
+        <hr />
+        <footer class="text-center">
+            <p>
+                &copy; @DateTime.Now.Year - Don't Copy Me ☺️
+            </p>
+        </footer>
+    </div>
+</body>
+</html>

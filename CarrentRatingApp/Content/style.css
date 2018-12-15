@@ -1,0 +1,210 @@
+﻿
+.header {
+    width: 100%;
+    background: rgba(54, 19, 84, 0.6);
+    z-index: 12;
+}
+
+    .header.scrolled {
+        background: rgba(54, 19, 84, 0.85);
+    }
+
+
+.top_bar {
+    width: 100%;
+    height: 36px;
+    background: #350a4e;
+    -webkit-transition: all 400ms ease;
+    -moz-transition: all 400ms ease;
+    -ms-transition: all 400ms ease;
+    -o-transition: all 400ms ease;
+    transition: all 400ms ease;
+}
+
+.header.scrolled .top_bar {
+    visibility: hidden;
+    opacity: 0;
+    height: 0px;
+}
+
+.phone {
+    display: inline-block;
+    margin-right: 36px;
+    line-height: 36px;
+    font-size: 10px;
+    font-weight: 600;
+    color: #FFFFFF;
+}
+
+.social_list_item {
+    position: relative;
+    display: inline-block;
+    margin-right: 3px;
+}
+
+    .social_list_item:last-child {
+        margin-right: 0px;
+    }
+
+    .social_list_item a {
+        display: block;
+        width: 100%;
+        padding-left: 10px;
+        padding-right: 10px;
+        line-height: 36px;
+    }
+
+    .social_list_item:hover a i {
+        color: #fa9e1c;
+    }
+
+    .social_list_item a i {
+        font-size: 12px;
+        color: #FFFFFF;
+        -webkit-transition: all 200ms ease;
+        -moz-transition: all 200ms ease;
+        -ms-transition: all 200ms ease;
+        -o-transition: all 200ms ease;
+        transition: all 200ms ease;
+    }
+
+    .social_list_item a:hover {
+        color: #FFFFFF;
+    }
+
+.user_box_link {
+    display: inline-block;
+}
+
+    .user_box_link a {
+        display: block;
+        font-size: 10px;
+        line-height: 36px;
+        font-weight: 600;
+        color: #FFFFFF;
+        text-transform: uppercase;
+    }
+
+        .user_box_link a:hover {
+            color: #fa9e1c;
+        }
+
+.user_box_login {
+    margin-right: 15px;
+}
+
+    .user_box_login::after {
+        display: block;
+        position: absolute;
+        top: 15px;
+        right: -9px;
+        background: #FFFFFF;
+        width: 1px;
+        height: 9px;
+        content: '';
+    }
+
+.main_nav_col {
+    height: 143px;
+    -webkit-transition: all 400ms ease;
+    -moz-transition: all 400ms ease;
+    -ms-transition: all 400ms ease;
+    -o-transition: all 400ms ease;
+    transition: all 400ms ease;
+}
+
+.header.scrolled .main_nav_col {
+    height: 100px;
+}
+/* sign in start */
+.form-signin {
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+    .form-signin .form-signin-heading, .form-signin .checkbox {
+        margin-bottom: 10px;
+    }
+
+    .form-signin .checkbox {
+        font-weight: normal;
+    }
+
+    .form-signin .form-control {
+        position: relative;
+        font-size: 16px;
+        height: auto;
+        padding: 10px;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+        .form-signin .form-control:focus {
+            z-index: 2;
+        }
+
+    .form-signin input[type="text"] {
+        margin-bottom: -1px;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+
+    .form-signin input[type="password"] {
+        margin-bottom: 10px;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+    }
+
+.account-wall {
+    margin-top: 20px;
+    padding: 40px 0px 20px 0px;
+    background-color: #f7f7f7;
+    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+.login-title {
+    color: #555;
+    font-size: 18px;
+    font-weight: 400;
+    display: block;
+}
+
+pre {
+    color: #fff;
+}
+
+.profile-img {
+    width: 96px;
+    height: 96px;
+    margin: 0 auto 10px;
+    display: block;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}
+
+.need-help {
+    margin-top: 10px;
+}
+
+.new-account {
+    display: block;
+    margin-top: 10px;
+}
+
+.btn-primary, .btn-success {
+    color: #fff;
+    background-color: #350a4e;
+    border-color: #120719;
+}
+    .btn-primary:hover, .btn-success:hover {
+        color: #fff;
+        background-color: #350a4e;
+        border-color: #350a4e;
+        opacity: 0.8;
+    }
+/* sign in end */

@@ -1,0 +1,132 @@
+﻿
+@{
+    ViewBag.Title = "Detail";
+}
+
+@model CarrentRatingApp.Models.Review
+<link rel="stylesheet" type="text/css" href="~/Content/single_listing_styles.css">
+<link rel="stylesheet" type="text/css" href="~/Content/single_listing_responsive.css">
+<link href="~/Content/jquery.rateyo.min.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="~/Content/jquery.min.js"></script>
+<script type="text/javascript" src="~/Content/jquery.rateyo.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $("#rateYo").rateYo({
+            rating: 0,
+            numStars: 5,
+            maxValue: 5,
+            halfStar: true,
+            onChange: function (rating, rateYoInstance) {
+                $("#rating").val(rating);
+            }
+        });
+    });
+</script>
+
+<div class="listing">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="single_listing">
+                    <div class="hotel_info">
+
+                        <div class="hotel_title_container d-flex flex-lg-row flex-column">
+                            <div class="hotel_title_content">
+                                <h1 class="hotel_title">@ViewBag.product.Name</h1>
+                                <div class="rating_r rating_r_4 hotel_rating">
+                                    <i></i>
+                                    <i></i>
+                                    <i></i>
+                                    <i></i>
+                                    <i></i>
+                                </div>
+                            </div>
+                            <div class="hotel_title_button ml-lg-auto text-lg-right">
+                                <div class="button book_button trans_200"><a href="@Url.Action("Index", "Product")">Back<span></span><span></span><span></span></a></div>
+                            </div>
+                        </div>
+
+                        <div class="hotel_image">
+                            <img src="~/Content/img/@ViewBag.product.Photo" alt="">
+                            <div class="hotel_review_container d-flex flex-column align-items-center justify-content-center">
+                                <div class="hotel_review">
+                                    <div class="hotel_review_content">
+                                        <div class="hotel_review_title">Id</div>
+                                        <div class="hotel_review_subtitle">Price @ViewBag.product.Price</div>
+                                    </div>
+                                    <div class="hotel_review_rating text-center">@ViewBag.product.Id</div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="reviews">
+                        <div class="reviews_title">reviews</div>
+                        <div class="reviews_container">
+                            @{ int i = 1; }
+                            @foreach (var review in ViewBag.product.Reviews)
+                            {
+                                <div class="review">
+                                    <div class="row">
+                                        <div class="col-lg-1">
+                                            <div class="review_image">
+                                                <img src="~/Content/img/akari.jpg">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-11">
+                                            <div class="review_content">
+                                                <div class="review_title_container">
+                                                    <div class="review_title">"@review.Content"</div>
+                                                    <div class="review_rating">
+                                                        <script>
+                                                            $(function () {
+                                                                $('#@("rating" + i)').rateYo({
+                                                                    rating:  @review.Rating,
+                                                                    readOnly: true
+                                                                });
+                                                            });
+                                                        </script>
+                                                        <div id="@("rating" + i)"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="review_date">@review.Account.Username</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                i++;
+                            }
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            @if (Session["username"] == null)
+            {
+                <a href="@Url.Action("Login", "Account")"><h4>Login to post your comments</h4></a>
+            }
+            else
+            {
+                using (Html.BeginForm("SendReview", "Product", FormMethod.Post))
+                {
+                <div class="col-md-12">
+                    <div class="widget-area no-padding blank">
+                        <div class="status-upload">
+                            <div id="rateYo"></div>
+                            <input type="hidden" id="rating" name="rating" />
+                            @Html.TextAreaFor(model => model.Content, new {
+                      cols = 20, rows = 5})
+                            <input type="submit" value="Rate" class="btn btn-success green" />
+                            @Html.HiddenFor(model => model.ProductId)
+                        </div>
+                    </div>
+                </div>
+                }
+            }
+
+        </div>
+     </div>
+</div>
